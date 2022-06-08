@@ -1,17 +1,40 @@
+:root {
+    --grid-cols: 1;
+    --grid-rows: 1;
+    --hsl-value: 100;
+    --hsl-perc: calc(var(--hsl-value)*1%);
+  }
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-.grid-div {
+html body {
+    height: 100vh;
     display: flex;
-    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.grid-div {
+    width: 600px;
+    height: 600px;
+    padding: 1rem;
+    background-color: teal;
+    display: grid;
+    grid-gap: 0.1em;
+    grid-template-rows: repeat(var(--grid-rows), 1fr);
+    grid-template-columns: repeat(var(--grid-cols), 1fr);
 }
 
 .box-class {
-    background-color: salmon;
-    flex: 1 0 21%;
-    padding-top: 25%;
-    margin: 1rem;
+    background-color: hsl(217, 0%, var(--hsl-perc));
+    border: 1px solid #ddd;
+    padding-top: 100%;
+}
+
+.box-class:hover {
+
 }
