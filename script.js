@@ -26,7 +26,7 @@ function attachCellDivEvent() {
       let hslValue = getComputedStyle(r).getPropertyValue("--hsl-value");
       let cellClass = cell.classList[1];
       console.log(cellClass);
-      let newHsl = hslValue - 50;
+      let newHsl = hslValue - 75;
       cell.style.backgroundColor = `hsl(217, 0%, ${newHsl}%)`;
     });
   });
