@@ -1,27 +1,23 @@
 const gridDiv = document.querySelector(".grid-div");
 let box = document.createElement("div");
 box.classList.add("box-class");
-// box.addEventListener("mouseenter", function () {
-//   // let r = document.querySelector(":root");
-//   // let hslValue = getComputedStyle(r).getPropertyValue("--hsl-value");
-//   // console.log(hslValue);
-//   // r.style.setProperty("--hsl-value", hslValue - 50);
-//   console.log("HELLO WORLD");
-// });
 
-// function attachEventListener() {
-//   const cells = document.querySelectorAll(".box-class");
-//   cells.forEach((cell) => {
-//     cell.addEventListener("mouseenter", function () {
-//       let r = document.querySelector(":root");
-//       let hslValue = getComputedStyle(r).getPropertyValue("--hsl-value");
-//       console.log(hslValue);
-//       r.style.setProperty("--hsl-value", hslValue - 10);
-//     });
-//   });
-// }
+function attachResetBtnEvent() {
+  document.body.addEventListener("click", function (e) {
+    if (
+      !e.target.classList.contains("grid-div") &&
+      !e.target.classList.contains("box-class")
+    ) {
+      const cells = document.querySelectorAll(".box-class");
+      cells.forEach((cell) => {
+        cell.style.backgroundColor = `hsl(217, 0%, 100%)`;
+      });
+      console.log("BODY CLICKED");
+    }
+  });
+}
 
-function attachEventListener() {
+function attachCellDivEvent() {
   const cells = document.querySelectorAll(".box-class");
   cells.forEach((cell) => {
     cell.addEventListener("mouseenter", function (e) {
@@ -43,7 +39,8 @@ function buildGrid(rows, cols) {
     box.classList.add(`box-div-${c + 1}`);
     gridDiv.appendChild(box.cloneNode(true)); // use cloneNode for appending element multiple times with a loop (doesn't copy event listeners of the element)
   }
-  attachEventListener();
+  attachCellDivEvent();
+  attachResetBtnEvent();
 }
 
 buildGrid(16, 16);
