@@ -21,12 +21,13 @@ html body {
 .grid-div {
     width: 600px;
     height: 600px;
-    padding: 1rem;
+    padding: 20px;
     background-color: teal;
     display: grid;
     grid-gap: 0.1em;
-    grid-template-rows: repeat(var(--grid-rows), 1fr);
-    grid-template-columns: repeat(var(--grid-cols), 1fr);
+    /* prevent grid item overflowing by putting minmax(0, 1fr) */
+    grid-template-rows: repeat(var(--grid-rows), minmax(0, 1fr)); 
+    grid-template-columns: repeat(var(--grid-cols), minmax(0, 1fr));
 }
 
 .box-class {
