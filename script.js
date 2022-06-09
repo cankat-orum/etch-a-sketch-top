@@ -1,6 +1,7 @@
 const gridDiv = document.querySelector(".grid-div");
 let box = document.createElement("div");
 box.classList.add("box-class");
+let gridSide = prompt("", "");
 
 function attachResetBtnEvent() {
   document.body.addEventListener("click", function (e) {
@@ -31,6 +32,10 @@ function attachCellDivEvent() {
   });
 }
 
+let gridTile = () => {
+  return;
+};
+
 function buildGrid(rows, cols) {
   gridDiv.style.setProperty("--grid-rows", rows);
   gridDiv.style.setProperty("--grid-cols", cols);
@@ -43,4 +48,4 @@ function buildGrid(rows, cols) {
   attachResetBtnEvent();
 }
 
-buildGrid(16, 16);
+buildGrid(gridSide, gridSide);
